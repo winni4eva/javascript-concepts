@@ -1,0 +1,17 @@
+### Theory
+Computer programs are the most complicated things people make.
+The initial goal of Artificial Intelligence (AI) was to make computers build our programs for us. It's too hard for humans to write programs.
+This mission has failed despite alot of successes, that is why we still write programs by hand.
+The most important tool for programming is the programming language. Computers are very good at translating one formal language into another formal language.
+This is what programming languages do, by providing us higher levels of abstraction so we can accomplish more with high level programming languages which is then 
+compiled down to instructions that the computer understands.
+Programs are not perfect and there exists no test for perfection, what we have are tests for imperfection.
+
+NB: We put our programs in production in hope that we will no first when things go wrong before anyone else.
+NB: The human brain has not evolved since the last ice age (hunting and gathering).
+
+Programming makes use of the Two Systems => Head (System 1) (Calculative, takes input from Gut unknowingly) & 
+                                            Gut (System 2) (Intuitive, can generate false assumptions and input) 
+
+We solve problems without knowing what the complete solution would look like so we often guess our way through the process. This is where System 1 shines.
+NB: This might be the main reason why we cannot teach or document how exactly we write computer programs (System 1 generates inputs)

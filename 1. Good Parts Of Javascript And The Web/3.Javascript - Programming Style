@@ -1,0 +1,19 @@
+### Switch Statements And The Fall Through Hazard
+NB: The switch statement was inspired by Ken Thompson which he borrowed from the case statemtent.
+
+The switch statement allows the existence of several independent clauses, a selection of a clause depends on the value of an expression.
+This has the behavior of a goto (originally from fortran), which was discarded as a bad feature but exists in all modern languages today
+in the form of the switch statement.
+
+The issue with the switch statement is the Fallthrough hazard, which basically is if you do not dirupt or exit a clause you automatically
+fall into the next clause. This causes coupling of the clauses which should be independent to start with.
+
+NB: If You never intentionally fall through a switch clause, you can at least find the cases where you accidentally fallthrough.
+NB: That hardly happens is another way of saying it happens
+NB: Making mathematical arguments without any data is a sign of System 1 (Gut) analysis, and there is a really good chance we are wrong.
+NB: The Roman empire communicated for centuries with a language that did not have punctuation or breaks and run an empire with it. This however 
+caused ambiguity when Christianity was adopted as the formal religion of the empire, therefore punctuations, lowercase and word breaks were introduced 
+to reduce the error rate. This made it easy to copy a manuscript without introducing errors into it. it also had the added benefit of making manuscripts 
+easy to read. Guttenberg copies these conventions while inventing printing and we still use them till today.
+
+NB: The Elements of Style, William Strunk, has been used by many computer scientists have used it as a model for writing books on programming style.

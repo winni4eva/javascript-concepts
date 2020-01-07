@@ -1,1 +1,107 @@
 NB: Use elements of good composition where applicable. For example we should always use a space after a comma, not before.
+
+### Immediately Invocable Function Expressions
+NB: The design of javascript did not anticipate that IIFE's were a feature of the language.
+
+## We cant invoke a function statement immediately
+```
+function () {
+    ...
+}(); // Syntax Error
+```
+
+## We can wrap the function in parenthesis
+NB: This makes our statement and expression which we can now invoke.
+```
+(function () {
+    ...
+})() <- The invoke parenthesis hangs of the expression like a pair of dog balls. We can improve this by wrapping the entire invokation in parenthesis
+```
+
+```
+(function () {
+    ...
+}()); // Neatness counts. Now the goal is not just to get it past the compiler but to communicate effectively to the reader what is happening.
+      // Means what is important here is not the function but the result of the function.
+```
+
+
+### The HeartBreak Of Automatic Semi Colon Insertion
+```
+x = y // Semi colon insertion will fail here
+ (function () {
+     //
+ }());
+```
+
+This will be compiled as:
+```
+x = y(function(){}());
+```
+
+NB: Never rely on automatic semi colon insertion
+
+
+### WITH Statement
+
+```
+with (o) {
+    foo = koda;
+}
+```
+
+The statements above can do all these 3 things; it is also possible that one of theses occurs anytime the statement executes. 
+It depends on the value of o which we cant tell at compile time, there is no way to read the program. 
+```
+A. o.foo = koda;
+B. o.foo = o.koda;
+C. foo = koda;
+D. foo = o.koda;
+```
+
+NB: Dont ever use the with statement. It maybe useful at some point, but it is confusing and that is what we want to avoid.
+NB: Confusion is when a program appears to do one thing and does something else instead.
+NB: The eliminiation of confusion leads to the elimination of bugs.
+
+### Transitivity (If two things are equal to the same thing then they must be equal to each other)
+Double and Triple equal to. 
+
+## Double Equals ==
+```
+if (0 == '') { // true, equates an integer to a string
+    ...
+}
+...
+0 == '0' // true
+'' == '0' // false 
+false == 'false' // false
+false == '0' // true 
+" \t\r\n " == 0 // true
+```
+The double equal to operator does type coercion. It first looks at the types of its arguments and if they are not the same type
+it will convert one or both of them to the same type and compare them with the result. This can lead to false positives and transitivity is lost here.
+
+## Triple Equals === (Always use this)
+Type coercion was removed from the triple equals. 
+NB: Always use the triple equals.
+
+NB: If there is a feature of a language that is sometimes problematic, and if it can be replaced with another feature that is more reliable,
+then always use the more reliable feature.
+
+## Assignment In If Clause
+```
+if (a = b) {
+
+}
+```
+This statement does 
+```
+a = b;
+if (a) {...}
+```
+
+Not
+
+```
+if (a === b) {...}
+```
